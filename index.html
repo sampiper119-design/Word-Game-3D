@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordblocks: Twist — Prototype</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <h1>WORDBLOCKS: TWIST</h1>
+    <p class="subtitle">Twist slices of the 3D cube to spell words on any face.<br>Press Enter to submit a ready word.</p>
+  </header>
+
+  <div class="controls-panel">
+    <div class="size-toggle" id="sizeToggle"></div>
+    <button class="rotate-btn" id="rotateBtn">⟳ Rotate view</button>
+  </div>
+
+  <main class="layout">
+
+    <section class="cube-panel">
+      <div class="ready-row" aria-live="polite">
+        <span id="readyLabel" class="ready-label">Twist a layer to begin.</span>
+      </div>
+
+      <div class="scene">
+        <div class="cube" id="cube">
+          <div class="face face-F" id="faceF"></div>
+          <div class="face face-B" id="faceB"></div>
+          <div class="face face-U" id="faceU"></div>
+          <div class="face face-D" id="faceD"></div>
+          <div class="face face-L" id="faceL"></div>
+          <div class="face face-R" id="faceR"></div>
+        </div>
+      </div>
+
+      <div class="status" id="status"></div>
+    </section>
+
+    <aside class="side-panel">
+      <div class="stat-block">
+        <span class="stat-label">Score</span>
+        <span id="score" class="stat-value">0</span>
+      </div>
+
+      <div class="stat-label">Power-Ups</div>
+      <div class="powerups-grid">
+        <button class="powerup-btn" id="btnLockTile">Lock Tile (<span id="cntLockTile">3</span>)</button>
+        <button class="powerup-btn" id="btnLockWord">Lock Word (<span id="cntLockWord">2</span>)</button>
+        <button class="powerup-btn" id="btnFreezeSlice">Freeze Slice (<span id="cntFreezeSlice">2</span>)</button>
+        <button class="powerup-btn" id="btnFreezeFace">Freeze Face (<span id="cntFreezeFace">1</span>)</button>
+        <button class="powerup-btn" id="btnReshuffle" style="grid-column: span 2;">Reshuffle Board (<span id="cntReshuffle">1</span>)</button>
+      </div>
+
+      <label class="assist-toggle"">
+        <input type="checkbox" id="assistToggle" checked>
+        Show ready word
+      </label>
+
+      <button id="restartBtn" class="restart-btn">Restart</button>
+      <button id="endGameBtn" class="btn-danger">End Game</button>
+
+      <div class="log-block">
+        <span class="stat-label">Words cleared</span>
+        <ul id="wordLog" class="word-log"></ul>
+      </div>
+    </aside>
+
+    <ol class="instructions">
+      <li>Arrow Keys / WASD Keys / Swipe to move letters.</li>
+      <li>Left and Right arrow keys switch vertically between horizontal slices. Up and Down arrow keys twists the selected 
+        horizontal slice</li>
+      <li>W and S keys switch horizontally between vertical slices. A and D keys twists the selected vertical slice.</li>
+      <li>Press 'Space' to rotate to different faces of the cube.</li>
+      <li>Press Enter to submit words when highlighted.</li>
+      <li>When stuck, click 'Lock Tile' to lock a selected letter in place, 'Lock Word' to lock a potential word in place, 
+        'Freeze Slice' to lock a selected slice (vertical or horizontal) in place, 'Freeze Face' to lock the current face in 
+        place, and Reshuffle to reset the cube.</li>
+      <li>Toggle on and off "Show Ready Word" to enable/disable highlight.</li>
+      <li>Wildcard(?) spawns randomly on the grid. When part of a valid word, click the tile directly to choose 
+        any letter to complete your word.</li>
+      <li>Rare double-letter tiles (like EE, OO, TT) help build longer, higher-scoring words quickly.</li>
+      <li>Rare letters (Q, Z, X, J, K, V) grant a 2x Score Multiplier to the word.</li>
+      <li>Forming a horizontal and vertical word that intersect triggers a Cross Multiplier that doubles the 
+        combined score of both words.</li>
+      <li>Back-to-back Cross matches increases your Combo Multiplier (2x, 4x, etc.).</li>
+      <li>Words that overlap into a different face grant a 2x Score Multiplier</li>
+      <li>Cross matches made with overlapping words grant a 2x Score Multiplier on top.</li>
+    </ol>
+
+  </main>
+
+  <script src="words.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
