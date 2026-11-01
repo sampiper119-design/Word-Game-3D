@@ -667,14 +667,14 @@ window.addEventListener('keydown', (e) => {
   }
 
   switch (e.key) {
-    case 'ArrowLeft': rowLayer = (rowLayer - 1 + N) % N; render(); break;
-    case 'ArrowRight': rowLayer = (rowLayer + 1) % N; render(); break;
-    case 'ArrowUp': twistRow(1); break;
-    case 'ArrowDown': twistRow(-1); break;
-    case 'w': case 'W': colLayer = (colLayer - 1 + N) % N; render(); break;
-    case 's': case 'S': colLayer = (colLayer + 1) % N; render(); break;
-    case 'a': case 'A': twistCol(-1); break;
-    case 'd': case 'D': twistCol(1); break;
+    case 'ArrowUp': rowLayer = (rowLayer - 1 + N) % N; render(); break;
+    case 'ArrowDown': rowLayer = (rowLayer + 1) % N; render(); break;
+    case 'ArrowLeft': twistRow(1); break;
+    case 'ArrowRight': twistRow(-1); break;
+    case 'd': case 'D': colLayer = (colLayer - 1 + N) % N; render(); break;
+    case 'a': case 'A': colLayer = (colLayer + 1) % N; render(); break;
+    case 'w': case 'W': twistCol(-1); break;
+    case 's': case 'S': twistCol(1); break;
     default: return;
   }
   e.preventDefault();
