@@ -671,8 +671,8 @@ window.addEventListener('keydown', (e) => {
     case 'ArrowDown': rowLayer = (rowLayer + 1) % N; render(); break;
     case 'ArrowLeft': twistRow(1); break;
     case 'ArrowRight': twistRow(-1); break;
-    case 'd': case 'D': colLayer = (colLayer - 1 + N) % N; render(); break;
-    case 'a': case 'A': colLayer = (colLayer + 1) % N; render(); break;
+    case 'a': case 'A': colLayer = (colLayer - 1 + N) % N; render(); break;
+    case 'd': case 'D': colLayer = (colLayer + 1) % N; render(); break;
     case 'w': case 'W': twistCol(-1); break;
     case 's': case 'S': twistCol(1); break;
     default: return;
